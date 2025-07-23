@@ -1,5 +1,5 @@
 //REST API for my application
-const express = require("express");
+/*const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const { Pool } = require("pg");
@@ -40,7 +40,7 @@ app.post("/tasks", async (req, res) => {
 });*/
 
 // READ only most recent 5 tasks which are incomplete
-app.get("/tasks", async (req, res) => {
+/*pp.get("/tasks", async (req, res) => {
   try {
     const result = await pool.query(`
       SELECT * FROM tasks
@@ -85,4 +85,23 @@ app.put("/tasks/:id/status", async (req, res) => {
 
 app.listen(5000, () => {
   console.log("Server running on port 5000");
+});*/
+
+
+//entry point
+const express = require("express");
+const cors = require("cors");
+const bodyParser = require("body-parser");
+const taskRoutes = require("./routes/tasks");
+
+const app = express();
+
+app.use(cors());
+app.use(bodyParser.json());
+
+app.use("/tasks", taskRoutes);
+
+app.listen(5000, () => {
+  console.log("Server running on port 5000");
 });
+
