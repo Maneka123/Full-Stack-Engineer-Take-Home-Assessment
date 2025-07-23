@@ -1,0 +1,45 @@
+
+
+services:
+  postgres:
+    image: postgres:13
+    container_name: postgres-db2
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: mydb
+    ports:
+      - "5433:5432"  # map host 5433 to container 5432 (Postgres default)
+    volumes:
+      - pgdata:/var/lib/postgresql/data  # fixed path typo
+    restart: always
+
+  backend:
+    build:
+      context: ./react-postgres-my-backend
+      dockerfile: Dockerfile
+    container_name: backend-service
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: mydb
+      POSTGRES_HOST: postgres
+    ports:
+      - "5001:5000"
+    depends_on:
+      - postgres
+    restart: on-failure
+
+  frontend:
+    build:
+      context: ./react-postgres-my-frontend
+      dockerfile: Dockerfile
+    container_name: frontend-service
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    restart: on-failure
+
+volumes:
+  pgdata:

@@ -19,7 +19,7 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
-      POSTGRES_DB: mydbdb      # <-- must match above
+      POSTGRES_DB: mydb      # <-- must match above
       POSTGRES_HOST: postgres
     depends_on:
       - postgres
