@@ -23,13 +23,13 @@ A full-stack Task Manager application built using:
 
 ##  Project Structure
 
-/react-postgres-my-frontend # React frontend
-/react-postgres-my-backend # Node.js backend
-/src/db # PostgreSQL connection pool
-/src/services # Business logic
-/src/controllers # Route handlers
-/_tests_ # Unit  tests
-/src/routes #has the specific url routes
+## /react-postgres-my-frontend # React frontend
+## /react-postgres-my-backend # Node.js backend
+## /src/db # PostgreSQL connection pool
+## /src/services # Business logic
+## /src/controllers # Route handlers
+## /_tests_ # Unit  tests
+## /src/routes #has the specific url routes
 
 
 ---
@@ -56,23 +56,23 @@ CREATE TABLE tasks (
 ## Update server/db/pool.js with your PostgreSQL credentials.
 
 ## Backend setup
-cd react-postgres-my-backend
-npm install
-npm start
+## cd react-postgres-my-backend
+## npm install
+## npm start
 
 Server will start on http://localhost:5000
 
 ## Frontend Setup
-cd react-postgres-my-frontend
-npm install
-npm start
+## cd react-postgres-my-frontend
+## npm install
+## npm start
 
 ## running tests
-cd react-postgres-my-backend
-npm test
+## cd react-postgres-my-backend
+## npm test
 
-cd react-postgres-my-frontend
-npm test
+## cd react-postgres-my-frontend
+## npm test
 
 ## running docker containers
 ## start
